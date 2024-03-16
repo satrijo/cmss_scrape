@@ -4,14 +4,15 @@
   "description": "To scrape data from cmss",
   "main": "src/index.js",
   "type": "module",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js",
     "start": "node src/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.3",
     "puppeteer": "^22.5.0"
   }
 }

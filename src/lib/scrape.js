@@ -1,16 +1,21 @@
 import puppeteer from 'puppeteer';
 
 export default async function fetchData(url, cccc, select, sum) {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        headless: 'new',
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    });
     const page = await browser.newPage();
     await page.goto(url);
     await page.type('input[name="CCCC"]', cccc);
+    await page.type('input[name="MAX_MSGS"]', sum);
     await page.select('select[name="MSG_TYPE"]', select);
     await page.click('input[type="SUBMIT"]');
-    await page.waitForSelector('table');
+    await page.waitForSelector('pre');
 
     const result = await page.evaluate((sum) => {
         const content = document.documentElement.innerHTML;
+        sum = parseInt(sum);
         let results = [];
         if (content.includes('<pre>')) {
             const preElements = content.split('<pre>');
@@ -30,19 +35,3 @@ export default async function fetchData(url, cccc, select, sum) {
     await browser.close();
     return result;
 }
-
-
-/**
- * Script ini dibuat untuk kebutuhan scraping data CMSS
- * Mohon untuk menggunakan script ini dengan bijak
- * Jika ada kesalahan silahkan hubungi pembuat script ini
- * 
- * Author: Satriyo Unggul Wicaksono
- * Email: mail@satrio.dev
- * 
- * Thanks to:
- * - My Daughter
- * - My Wife
- * - My Parent
- * - BMKG Cilacap
- */
