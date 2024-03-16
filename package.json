@@ -1,0 +1,17 @@
+{
+  "name": "cmss_scrape",
+  "version": "1.0.0",
+  "description": "To scrape data from cmss",
+  "main": "src/index.js",
+  "type": "module",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^22.5.0"
+  }
+}
