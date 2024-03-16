@@ -23,6 +23,9 @@ WORKDIR /home/rio
 # Copy package.json and package-lock.json
 COPY --chown=rio:rio package*.json ./
 
+# Install dependencies
+RUN npm install
+
 # Install Puppeteer without downloading bundled Chromium
 RUN npm install puppeteer --no-save
 
