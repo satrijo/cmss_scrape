@@ -11,10 +11,10 @@ export default async function fetchData(url, cccc, select, sum) {
     await page.type('input[name="MAX_MSGS"]', sum);
     await page.select('select[name="MSG_TYPE"]', select);
     await page.click('input[type="SUBMIT"]');
-    await page.waitForNavigation();
     await page.waitForSelector('table');
     await page.waitForSelector('pre');
     await page.waitForSelector('strong');
+
     await page.waitForNetworkIdle();
 
     const result = await page.evaluate((sum) => {
