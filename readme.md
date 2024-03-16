@@ -8,6 +8,7 @@ Author: Satriyo Unggul Wicaksono
 Email: mail@satrio.dev
 
 Thanks to:
+
 - My Daughter
 - My Wife
 - My Parent
