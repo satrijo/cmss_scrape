@@ -1,9 +1,11 @@
 import fetchData from "./lib/scrape.js";
 import express from "express";
+import cors from "cors";
 
 const app = express();
 const port = 3113;
 
+app.use(cors());
 app.get("/", (req, res) => {
     res.json({
         status: "success",

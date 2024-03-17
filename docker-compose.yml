@@ -9,3 +9,4 @@ services:
       - 3113:3113
     volumes:
       - .:/app
+    restart: always
