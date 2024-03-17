@@ -1,6 +1,6 @@
 version: "2.0"
 services:
-  app:
+  cmss:
     image: cmss
     build:
       context: .
