@@ -1,0 +1,11 @@
+version: "1.0"
+services:
+  app:
+    image: cmss
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3113:3113
+    volumes:
+      - .:/app
