@@ -1,4 +1,4 @@
-# .CMSS Scrape
+# CMSS Scrape
 
 Script ini dibuat untuk kebutuhan scraping data CMSS. Mohon untuk menggunakan script ini dengan bijak. Jika ada kesalahan silahkan hubungi pembuat script ini
 
