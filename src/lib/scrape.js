@@ -1,13 +1,21 @@
 import puppeteer from 'puppeteer';
 
-export default async function fetchData(url, cccc, select, sum) {
+export default async function fetchData(url, cccc, select, sum, stnid) {
     const browser = await puppeteer.launch({
         headless: 'new',
         args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
     const page = await browser.newPage();
     await page.goto(url);
-    await page.type('input[name="CCCC"]', cccc);
+    await page.waitForSelector('input[name="MAX_MSGS"]');
+    if (cccc) {
+        await page.type('input[name="CCCC"]', cccc);
+    }
+
+    if (stnid) {
+        await page.type('input[name="STN_ID"]', stnid);
+    }
+
     await page.type('input[name="MAX_MSGS"]', sum);
     await page.select('select[name="MSG_TYPE"]', select);
     await page.click('input[type="SUBMIT"]');

@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 
 const app = express();
-const port = 3113;
+const port = 3123;
 
 app.use(cors());
 app.get("/", (req, res) => {
@@ -22,7 +22,8 @@ app.get("/api/cmss", async (req, res) => {
     const key = "AbjadIndonesia";
 
     const param = req.query;
-    const CCCC = param.cccc;
+    const CCCC = param.cccc || "";
+    const stnid = param.stnid || "";
     const MSG_TYPE = param.type;
     const url = "http://172.19.1.1/cgi-bin/extract_cmss.pl"
     const sum = param.sum;
@@ -38,18 +39,18 @@ app.get("/api/cmss", async (req, res) => {
         return;
     }
 
-    if (!CCCC || !MSG_TYPE || !sum) {
+    if (!MSG_TYPE || !sum) {
         res.json({
             status: "error",
             code: 400,
             data: null,
-            error: "Missing parameter cccc or type or sum",
+            error: "Missing parameter cccc or type or sum or stnid",
             message: null
         });
         return;
     }
 
-    const result = await fetchData(url, CCCC, MSG_TYPE, sum);
+    const result = await fetchData(url, CCCC, MSG_TYPE, sum, stnid);
 
     res.json(result);
 });
