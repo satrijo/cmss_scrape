@@ -5,13 +5,6 @@ Script ini dibuat untuk kebutuhan scraping data CMSS. Mohon untuk menggunakan sc
 - Author: Satriyo Unggul Wicaksono
 - Email: mail@satrio.dev
 
-**Thanks to:**
-
-- My Daughter
-- My Wife
-- My Parent
-- BMKG Cilacap
-
 ### Cara Menggunakan
 
 1. Dibutuhkan docker & docker compose (install terlebih dahulu jika belum ada)
